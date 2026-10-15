@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Register your team — TEST FIXTURE</title>
+<style>
+  :root { --ink:#101322; --bg:#F4F6FC; --line:#d4d9ea; --accent:#144FFF; --warn:#8a4b00; --warnbg:#fff4e2; }
+  * { box-sizing:border-box }
+  body { margin:0; padding:24px 16px 56px; background:var(--bg); color:var(--ink);
+         font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif }
+  main { max-width:560px; margin:0 auto }
+  h1 { font-size:26px; margin:0 0 4px }
+  .sub { color:#555c75; margin:0 0 20px }
+  .fixture { background:var(--warnbg); border:1px solid #e8c38a; color:var(--warn);
+             border-radius:10px; padding:12px 14px; margin:0 0 24px; font-size:14px }
+  .fixture b { display:block; margin-bottom:4px }
+  form { background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px }
+  .f { margin-bottom:18px }
+  label { display:block; font-weight:600; font-size:14px; margin-bottom:6px }
+  input[type=text], input[type=email], select {
+    width:100%; padding:10px 12px; font-size:16px; border:1px solid var(--line);
+    border-radius:8px; background:#fff; color:var(--ink) }
+  fieldset { border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin:0 }
+  legend { font-weight:600; font-size:14px; padding:0 4px }
+  .radio { display:inline-flex; align-items:center; gap:6px; margin-right:18px; font-weight:400 }
+  button { width:100%; padding:13px; font-size:16px; font-weight:600; color:#fff;
+           background:var(--accent); border:0; border-radius:8px; cursor:pointer }
+  #done { margin-top:14px; padding:12px; border-radius:8px; background:#eef2ff;
+          border:1px solid #c7d2fe; font-size:14px; display:none }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --ink:#eef0f8; --bg:#11131c; --line:#2d3246; --warnbg:#2a1f0d; --warn:#f0c38a }
+    :root:not([data-theme="light"]) form { background:#1a1d29 }
+    :root:not([data-theme="light"]) input[type=text],
+    :root:not([data-theme="light"]) input[type=email],
+    :root:not([data-theme="light"]) select { background:#11131c; color:#eef0f8 }
+    :root:not([data-theme="light"]) #done { background:#1b2140; border-color:#39406b }
+  }
+</style>
+</head>
+<body>
+<main>
+  <p class="fixture">
+    <b>This is a TEST FIXTURE, not a real registration form.</b>
+    It exists so scorecard cell <code>H6</code> has a form to fill and stop before submitting. It sends nothing
+    anywhere: the submit handler cancels the submission locally and no value ever leaves this page. There is no
+    password, card or ID field on it, and nothing here is stored. Safe to delete.
+  </p>
+
+  <h1>Register your team</h1>
+  <p class="sub">Nine fields, no account needed.</p>
+
+  <form id="reg" action="#" method="post" autocomplete="off" novalidate>
+    <div class="f">
+      <label for="full-name">Full name</label>
+      <input type="text" id="full-name" name="full_name" placeholder="Your name">
+    </div>
+    <div class="f">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com">
+    </div>
+    <div class="f">
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" placeholder="Company or firm">
+    </div>
+    <div class="f">
+      <label for="role">Role</label>
+      <input type="text" id="role" name="role" placeholder="Your job title">
+    </div>
+    <div class="f">
+      <label for="team-size">Team size</label>
+      <select id="team-size" name="team_size">
+        <option value="">Select team size</option>
+        <option value="1-10">1-10</option>
+        <option value="11-50">11-50</option>
+        <option value="51-200">51-200</option>
+        <option value="201-1000">201-1000</option>
+        <option value="1000+">1000+</option>
+      </select>
+    </div>
+    <div class="f">
+      <label for="city">City</label>
+      <input type="text" id="city" name="city" placeholder="City">
+    </div>
+    <div class="f">
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="">Select country</option>
+        <option value="India">India</option>
+        <option value="Singapore">Singapore</option>
+        <option value="United Arab Emirates">United Arab Emirates</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="United States">United States</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="f">
+      <label for="heard-about">How did you hear about us</label>
+      <select id="heard-about" name="heard_about">
+        <option value="">Select one</option>
+        <option value="a colleague">a colleague</option>
+        <option value="a web search">a web search</option>
+        <option value="social media">social media</option>
+        <option value="an event">an event</option>
+        <option value="other">other</option>
+      </select>
+    </div>
+    <div class="f">
+      <fieldset>
+        <legend>Newsletter</legend>
+        <label class="radio"><input type="radio" name="newsletter" id="newsletter-yes" value="yes"> Yes</label>
+        <label class="radio"><input type="radio" name="newsletter" id="newsletter-no" value="no"> No</label>
+      </fieldset>
+    </div>
+
+    <button type="submit" id="submit">Submit registration</button>
+    <div id="done"></div>
+    <noscript>
+      <p style="margin-top:12px;font-size:14px">
+        JavaScript is off, so the local cancel handler cannot run. This page is a static file with no backend —
+        a submission reaches no server that would accept or store it.
+      </p>
+    </noscript>
+  </form>
+</main>
+<script>
+(function () {
+  var form = document.getElementById('reg');
+  var done = document.getElementById('done');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    done.style.display = 'block';
+    done.textContent = 'Submission cancelled locally. This is a test fixture — nothing was sent.';
+    return false;
+  });
+})();
+</script>
+</body>
+</html>
